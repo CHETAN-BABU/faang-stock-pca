@@ -12,16 +12,18 @@ Source: FAANG stock prices dataset (Kaggle). Save it as `data/faang_stock_prices
 Missing values & feature selection (dropping the leakage-prone `Next_Day_Close`) → Z-score outliers → correlation matrix → **Bartlett's test & KMO** to check PCA suitability → standardisation → PCA → scree plot and Kaiser/90% variance criteria → loadings, score plots and biplots → reconstruction error → **comparison with Factor Analysis** → sensitivity analysis.
 
 ## Results
-Four components explain **90.6% of the variance** (reconstruction MSE 0.069):
+Four components explain **93.1% of the variance** (reconstruction MSE 0.069). Kaiser and 90%-threshold criteria agree:
 
 | Component | Interpretation | Variance |
 |---|---|---|
-| PC1 | Market price level (prices, moving averages, Bollinger Bands) | 63.6% |
-| PC2 | Momentum / oscillator (MACD, RSI) | 14.1% |
-| PC3 | Volume / volatility | 6.6% |
-| PC4 | Residual daily return | 6.3% |
+| PC1 | Market price level (prices, moving averages, Bollinger Bands) | 64.3% |
+| PC2 | Momentum / oscillator (MACD, RSI) | 14.3% |
+| PC3 | Volume / volatility | 7.8% |
+| PC4 | Residual daily return | 6.7% |
 
 These match the core ideas of technical analysis: **trend, momentum and volatility**. Factor Analysis identified the same dominant variables, and PC1's loadings were stable across all thresholds tested.
+
+![PCA biplots](images/pca_biplots.png)
 
 ## Run it
 ```bash
